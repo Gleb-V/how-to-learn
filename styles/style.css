@@ -21,70 +21,72 @@
   (т.к. это единственный элемент секции без абсолютного позиционирования) */
   display: flex;
   align-items: center;
-  /* ниже устанавливается отступ спарава в 64px, т.к. логотип, заголовок и подзаголовок на 64 пикселя правее левого края  */
+  /* ниже устанавливается отступ слева в 64px, т.к. логотип, заголовок и подзаголовок на 64 пикселя правее левого края  */
   padding-left: 64px;
   /* ниже применяется overflow:hidden для того, чтобы синий квадрат не выходил за пределы header когда окно браузера сужается по вертикали */
   overflow: hidden;
 }
 
-.logo{
+.logo {
   width: 228px;
   height: 32px;
 }
 
-.logo_place_header{
+.logo_place_header {
   background-image: url(../images/logo_place_header.svg);
   background-size: cover;
   position: absolute;
   top: 30px;
+  left: 64px;
   z-index: 4;
 }
 
-.header__title{
-  width: 730px;
+.header__title {
+  max-width: 730px;
+  width: 100%;
   line-height: 96px;
   font-size: 102px;
   font-weight: 600;
-}
-.header__title_position{
   margin: 0;
   z-index: 3;
 }
 
-.header__subtitle{
-  width: 388px;
+.header__subtitle {
+  max-width: 388px;
+  width: 100%;
+  margin: 0;
   line-height: 25px;
   font-size: 18px;
   font-weight: normal;
-}
-.header__subtitle_position{
   position: absolute;
   bottom: 30px;
+  left: 64px;
   z-index: 2;
 }
 
-.header__link{
+.header__link {
   text-decoration: none;
   color: #2f80ed;
 }
+.header__link:hover{
+  color: #f00;
+}
 
-.header__main-illustration{
+.header__main-illustration {
   width: 765px;
   height: 608px;
-}
-.header__main-illustration_position{
   position: absolute;
   right: 0;
   bottom: 0;
   z-index: 1;
+  object-fit: fill;
+  object-position: right bottom;
 }
 
-.header__square-pic{
+.header__square-pic {
   background-color: #2f80ed;
   width: 568px;
   height: 568px;
-}
-.header__square-pic_position{
   position: absolute;
   right: 0;
   top: 64px;
@@ -92,42 +94,46 @@
 }
 
 /* ниже начинается секция description */
-.description{
+.description {
   display: flex;
   justify-content: center;
   padding: 100px 0 0;
 }
 
-.two-columns{
+.two-columns {
   width: 80%;
   display: flex;
   justify-content: space-between;
 }
 
-.two-columns__brief{
+.two-columns__brief {
+  max-width: 175px;
+  width: 100%;
   margin: 0;
-  width: 175px;
   line-height: 1.2;
   font-size: 18px;
   font-weight: normal;
   color: #2f80ed;
 }
 
-.two-columns__main-text{
+.two-columns__main-text {
   width: 80%;
   min-width: 784px;
 }
-.two-columns__paragrph{
+
+.two-columns__paragrph {
   line-height: 34px;
   font-size: 24px;
   font-weight: normal;
   margin: 0 0 30px;
 }
+
 /* ниже завершающему колонку абзацу присваивается псевдокласс last-of-type для обнуления нижнего отступа в 30px */
-.two-columns__paragrph:last-of-type{
+.two-columns__paragrph:last-of-type {
   margin: 0;
 }
-.two-columns__span-accent{
+
+.two-columns__span-accent {
   line-height: 34px;
   font-size: 24px;
   font-weight: 600;
@@ -135,14 +141,14 @@
 }
 
 /* ниже начинается секция digits */
-.digits{
+.digits {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   padding: 100px 0;
 }
 
-.section-title{
+.section-title {
   width: 60%;
   text-align: center;
   line-height: 1.15;
@@ -151,7 +157,7 @@
   margin: 0;
 }
 
-.section-subtitle{
+.section-subtitle {
   width: 60%;
   text-align: center;
   line-height: 34px;
@@ -160,32 +166,40 @@
   margin: 20px 0 0;
 }
 
-.table{
-  width: 1100px;
+.table {
+  max-width: 1100px;
+  width:100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
-.table__cell{
-  width: 250px;
+
+.table__cell {
+  max-width: 250px;
+  width:100%;
   margin-top: 60px;
 }
-.table__heading{
+
+.table__heading {
   line-height: 1.15;
   font-size: 24px;
   font-weight: 600;
   margin: 0;
 }
-.table__text{
+
+.table__text {
   line-height: 1.2;
   font-size: 18px;
   font-weight: normal;
-  margin: 20px 0 0 0;
+  margin: 20px 0 0;
 }
 
 /* ниже начинается секция feynman */
-.feynman{
-  height: 890px;
+.feynman {
+  min-height: 890px;
   background-color: #f2f2f2;
   /* ниже устанавливаются условия для возможности расположить заголовок и подзаголовок в колонку по центру секции */
   display: flex;
@@ -201,8 +215,9 @@
   background-position: left bottom;
 }
 
-.feynman__title{
-  width: 648px;
+.feynman__title {
+  max-width: 648px;
+  width: 100%;
   margin: 100px 0 0;
   text-align: center;
   line-height: 1.15;
@@ -210,29 +225,31 @@
   font-weight: 600;
 }
 
-.feynman__subtitle{
-  margin-top: 70px;
+.feynman__subtitle {
+  margin: 70px 0 0;
   text-align: center;
   line-height: 51px;
   font-size: 36px;
   font-weight: normal;
 }
 
-.feynman__link{
+.feynman__link {
   line-height: 51px;
   font-size: 36px;
   font-weight: normal;
   text-decoration: none;
   color: #2f80ed;
-}
-.feynman__link_position{
   position: absolute;
   top: 50%;
   right: 48px;
 }
 
+.feynman__link:hover{
+  color: #f00;
+}
+
 /* ниже начинается секция kaufman */
-.kaufman{
+.kaufman {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -240,35 +257,45 @@
   background-color: #1f1f1f;
   /* ниже прописывется  position:relative для возможности расоположить треугольник посредством absolute */
   position: relative;
-  /* ниже прописывется z-index с меньшим чем у синего треугольника значением для того, чтобы фоновый цвет секции не перекрывал синий треугольник */
-  z-index: -2;
   /* ниже применяется overflow:hidden для того, чтобы синий треугольник не выходил за пределы секции */
   overflow: hidden;
-  /* ниже прописывется белый цвет тексту всех дочерних элементов, вложенных в секцию кауфман*/
-  color: #fff;
 }
 
 /* данный класс ниже с модификатором theme_dark меняет ширину ячеек таблицы на 200px, меняет отступ между строкаим таблицы на 80px */
-.table__cell_theme_dark {
+.section-title_theme_dark{
   color: #fff;
-  width: 200px;
+}
+
+.section-subtitle_theme_dark{
+  color: #fff;
+}
+
+.table_theme_dark{
+  color: #fff;
+  z-index: 1;
+}
+
+.table__cell_theme_dark {
+  max-width: 200px;
+  width: 100%;
   margin-top: 80px;
 }
 
-.kaufman__triangle{
+.kaufman__triangle {
+  background-image: url(../images/kaufman-triangle.svg);
   width: 877px;
   height: 877px;
+  background-size:contain;
   /* ниже прописывется z-index со значением меньше 0 для того, чтобы синий треугольник не перекрывал другие элементы секции */
-  z-index: -1;
-}
-.kaufman__triangle_position{
+  z-index: 0;
   position: absolute;
   top: 0;
   right: -210px;
 }
 
 /* ниже начинается footer */
-.footer{
+.footer {
+  box-sizing: border-box;
   background-color: #1f1f1f;
   min-height: 350px;
   display: flex;
@@ -277,54 +304,65 @@
   color: #fff;
 }
 
-.footer__columns{
-width: 90%;
-display: flex;
-justify-content: space-between;
+.footer__columns {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
 }
 
-.footer__column_copyright{
+.footer__column_content_copyright {
   flex-basis: 711px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: start;
 }
+
 /* ниже задаётся модификатор для логотипа, помещённого в footer */
-.logo_place_footer{
+.logo_place_footer {
   background-image: url(../images/logo_place_footer.svg);
   background-size: cover;
 }
-.footer__author{
-  display: inline-block;
+
+.footer__author {
+  display: flex;
   margin: 18px 0;
   line-height: 25px;
   font-size: 18px;
   font-weight: normal;
 }
 
-.footer__column_header{
+.footer__column-heading {
   margin: 0 0 20px;
   line-height: 30px;
   font-size: 18px;
   font-weight: 600;
 }
-.footer__column-links{
+
+.footer__column-links {
   margin: 0 0 16px;
   padding: 0;
   list-style: none;
 }
-.footer__column-link{
+
+.footer__column-link {
   text-decoration: none;
   color: #fff;
   line-height: 30px;
   font-size: 18px;
   font-weight: normal;
   margin: 0;
+  display: flex;
+  align-items: center;
 }
-.footer__social-icon{
+
+.footer__column-link:hover{
+  color: #0f0;
+}
+
+.footer__social-icon {
   height: 16px;
   width: 16px;
-  display: inline-block;
+  display: flex;
   margin-right: 10px;
 }
