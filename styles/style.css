@@ -14,18 +14,317 @@
   min-height: 600px;
   max-height: 756px;
   /* выше установили ограничения для секции */
+  background-color: #f2f2f2;
+  /* ниже прописывется position:relative для возможности расополагать все элементы (кроме title) посредством position:absolute */
+  position: relative;
+  /* ниже прописывется display:flex и align-items: center для возможности центрировать элемент title посредством флекс контейнера
+  (т.к. это единственный элемент секции без абсолютного позиционирования) */
+  display: flex;
+  align-items: center;
+  /* ниже устанавливается отступ спарава в 64px, т.к. логотип, заголовок и подзаголовок на 64 пикселя правее левого края  */
+  padding-left: 64px;
+  /* ниже применяется overflow:hidden для того, чтобы синий квадрат не выходил за пределы header когда окно браузера сужается по вертикали */
+  overflow: hidden;
 }
 
-/* ниже мы привели пример двух селекторов, чтобы вы вспомнили запись элемента */
-.header__square-pic {
-  height: 568px;
+.logo{
+  width: 228px;
+  height: 32px;
+}
+
+.logo_place_header{
+  background-image: url(../images/logo_place_header.svg);
+  background-size: cover;
+  position: absolute;
+  top: 30px;
+  z-index: 4;
+}
+
+.header__title{
+  width: 730px;
+  line-height: 96px;
+  font-size: 102px;
+  font-weight: 600;
+}
+.header__title_position{
+  margin: 0;
+  z-index: 3;
+}
+
+.header__subtitle{
+  width: 388px;
+  line-height: 25px;
+  font-size: 18px;
+  font-weight: normal;
+}
+.header__subtitle_position{
+  position: absolute;
+  bottom: 30px;
+  z-index: 2;
+}
+
+.header__link{
+  text-decoration: none;
+  color: #2f80ed;
+}
+
+.header__main-illustration{
+  width: 765px;
+  height: 608px;
+}
+.header__main-illustration_position{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.header__square-pic{
+  background-color: #2f80ed;
   width: 568px;
+  height: 568px;
+}
+.header__square-pic_position{
+  position: absolute;
+  right: 0;
+  top: 64px;
+  z-index: 0;
 }
 
-/* и элемента с модификатором вида ключ-значение */
+/* ниже начинается секция description */
+.description{
+  display: flex;
+  justify-content: center;
+  padding: 100px 0 0;
+}
+
+.two-columns{
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.two-columns__brief{
+  margin: 0;
+  width: 175px;
+  line-height: 1.2;
+  font-size: 18px;
+  font-weight: normal;
+  color: #2f80ed;
+}
+
+.two-columns__main-text{
+  width: 80%;
+  min-width: 784px;
+}
+.two-columns__paragrph{
+  line-height: 34px;
+  font-size: 24px;
+  font-weight: normal;
+  margin: 0 0 30px;
+}
+/* ниже завершающему колонку абзацу присваивается псевдокласс last-of-type для обнуления нижнего отступа в 30px */
+.two-columns__paragrph:last-of-type{
+  margin: 0;
+}
+.two-columns__span-accent{
+  line-height: 34px;
+  font-size: 24px;
+  font-weight: 600;
+  text-decoration: dashed;
+}
+
+/* ниже начинается секция digits */
+.digits{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 100px 0;
+}
+
+.section-title{
+  width: 60%;
+  text-align: center;
+  line-height: 1.15;
+  font-size: 60px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.section-subtitle{
+  width: 60%;
+  text-align: center;
+  line-height: 34px;
+  font-size: 24px;
+  font-weight: normal;
+  margin: 20px 0 0;
+}
+
+.table{
+  width: 1100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.table__cell{
+  width: 250px;
+  margin-top: 60px;
+}
+.table__heading{
+  line-height: 1.15;
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0;
+}
+.table__text{
+  line-height: 1.2;
+  font-size: 18px;
+  font-weight: normal;
+  margin: 20px 0 0 0;
+}
+
+/* ниже начинается секция feynman */
+.feynman{
+  height: 890px;
+  background-color: #f2f2f2;
+  /* ниже устанавливаются условия для возможности расположить заголовок и подзаголовок в колонку по центру секции */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* ниже прописывется position:relative для возможности расоположить ссылку посредством absolute */
+  position: relative;
+  /* ниже установливается ЧБ фото Ричарда Фейнмана в качестве фонового изображения */
+  background-image: url(../images/feynman.png);
+  background-size: 867px 637px;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-position: left bottom;
+}
+
+.feynman__title{
+  width: 648px;
+  margin: 100px 0 0;
+  text-align: center;
+  line-height: 1.15;
+  font-size: 120px;
+  font-weight: 600;
+}
+
+.feynman__subtitle{
+  margin-top: 70px;
+  text-align: center;
+  line-height: 51px;
+  font-size: 36px;
+  font-weight: normal;
+}
+
+.feynman__link{
+  line-height: 51px;
+  font-size: 36px;
+  font-weight: normal;
+  text-decoration: none;
+  color: #2f80ed;
+}
+.feynman__link_position{
+  position: absolute;
+  top: 50%;
+  right: 48px;
+}
+
+/* ниже начинается секция kaufman */
+.kaufman{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 90px 0;
+  background-color: #1f1f1f;
+  /* ниже прописывется  position:relative для возможности расоположить треугольник посредством absolute */
+  position: relative;
+  /* ниже прописывется z-index с меньшим чем у синего треугольника значением для того, чтобы фоновый цвет секции не перекрывал синий треугольник */
+  z-index: -2;
+  /* ниже применяется overflow:hidden для того, чтобы синий треугольник не выходил за пределы секции */
+  overflow: hidden;
+  /* ниже прописывется белый цвет тексту всех дочерних элементов, вложенных в секцию кауфман*/
+  color: #fff;
+}
+
+/* данный класс ниже с модификатором theme_dark меняет ширину ячеек таблицы на 200px, меняет отступ между строкаим таблицы на 80px */
 .table__cell_theme_dark {
+  color: #fff;
   width: 200px;
-  color: white;
-  margin-right: 0;
   margin-top: 80px;
+}
+
+.kaufman__triangle{
+  width: 877px;
+  height: 877px;
+  /* ниже прописывется z-index со значением меньше 0 для того, чтобы синий треугольник не перекрывал другие элементы секции */
+  z-index: -1;
+}
+.kaufman__triangle_position{
+  position: absolute;
+  top: 0;
+  right: -210px;
+}
+
+/* ниже начинается footer */
+.footer{
+  background-color: #1f1f1f;
+  min-height: 350px;
+  display: flex;
+  justify-content: center;
+  padding: 60px 0 40px;
+  color: #fff;
+}
+
+.footer__columns{
+width: 90%;
+display: flex;
+justify-content: space-between;
+}
+
+.footer__column_copyright{
+  flex-basis: 711px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+}
+/* ниже задаётся модификатор для логотипа, помещённого в footer */
+.logo_place_footer{
+  background-image: url(../images/logo_place_footer.svg);
+  background-size: cover;
+}
+.footer__author{
+  display: inline-block;
+  margin: 18px 0;
+  line-height: 25px;
+  font-size: 18px;
+  font-weight: normal;
+}
+
+.footer__column_header{
+  margin: 0 0 20px;
+  line-height: 30px;
+  font-size: 18px;
+  font-weight: 600;
+}
+.footer__column-links{
+  margin: 0 0 16px;
+  padding: 0;
+  list-style: none;
+}
+.footer__column-link{
+  text-decoration: none;
+  color: #fff;
+  line-height: 30px;
+  font-size: 18px;
+  font-weight: normal;
+  margin: 0;
+}
+.footer__social-icon{
+  height: 16px;
+  width: 16px;
+  display: inline-block;
+  margin-right: 10px;
 }
