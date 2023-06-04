@@ -68,7 +68,8 @@
   text-decoration: none;
   color: #2f80ed;
 }
-.header__link:hover{
+
+.header__link:hover {
   color: #f00;
 }
 
@@ -79,7 +80,7 @@
   right: 0;
   bottom: 0;
   z-index: 1;
-  object-fit: fill;
+  object-fit: cover;
   object-position: right bottom;
 }
 
@@ -168,7 +169,7 @@
 
 .table {
   max-width: 1100px;
-  width:100%;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -179,7 +180,7 @@
 
 .table__cell {
   max-width: 250px;
-  width:100%;
+  width: 100%;
   margin-top: 60px;
 }
 
@@ -244,7 +245,7 @@
   right: 48px;
 }
 
-.feynman__link:hover{
+.feynman__link:hover {
   color: #f00;
 }
 
@@ -255,6 +256,7 @@
   justify-content: center;
   padding: 90px 0;
   background-color: #1f1f1f;
+  z-index: 1;
   /* ниже прописывется  position:relative для возможности расоположить треугольник посредством absolute */
   position: relative;
   /* ниже применяется overflow:hidden для того, чтобы синий треугольник не выходил за пределы секции */
@@ -262,17 +264,16 @@
 }
 
 /* данный класс ниже с модификатором theme_dark меняет ширину ячеек таблицы на 200px, меняет отступ между строкаим таблицы на 80px */
-.section-title_theme_dark{
+.section-title_theme_dark {
   color: #fff;
 }
 
-.section-subtitle_theme_dark{
+.section-subtitle_theme_dark {
   color: #fff;
 }
 
-.table_theme_dark{
+.table_theme_dark {
   color: #fff;
-  z-index: 1;
 }
 
 .table__cell_theme_dark {
@@ -285,9 +286,9 @@
   background-image: url(../images/kaufman-triangle.svg);
   width: 877px;
   height: 877px;
-  background-size:contain;
+  background-size: contain;
   /* ниже прописывется z-index со значением меньше 0 для того, чтобы синий треугольник не перекрывал другие элементы секции */
-  z-index: 0;
+  z-index: -1;
   position: absolute;
   top: 0;
   right: -210px;
@@ -356,7 +357,7 @@
   align-items: center;
 }
 
-.footer__column-link:hover{
+.footer__column-link:hover {
   color: #0f0;
 }
 
