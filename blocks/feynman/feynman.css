@@ -1,0 +1,16 @@
+.feynman {
+  min-height: 890px;
+  background-color: #f2f2f2;
+  /* ниже устанавливаются условия для возможности расположить заголовок и подзаголовок в колонку по центру секции */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* ниже прописывется position:relative для возможности расоположить ссылку посредством absolute */
+  position: relative;
+  /* ниже установливается ЧБ фото Ричарда Фейнмана в качестве фонового изображения */
+  background-image: url(/images/feynman.png);
+  background-size: 867px 637px;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-position: left bottom;
+}
