@@ -1,5 +1,4 @@
 .link:hover{
-  color: #f00;
   transition: .9s ease-in-out;
-  opacity: .8;
+  opacity: .2;
 }
